@@ -7,12 +7,24 @@
 
 import SwiftUI
 
-struct EquationSide: View {
+struct EquationSideView: View {
+    
+    let side: EquationSide
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HStack {
+            ForEach(side.equationParts, id:\.self.partId) {part in
+
+                EquationPartView(part: part)
+            }
+        }
     }
 }
 
 #Preview {
-    EquationSide()
+    ZStack {
+        Color.blue
+        EquationSideView(side: PreviewExampleBuilder.shared.exampleEquationSide())
+    }
 }

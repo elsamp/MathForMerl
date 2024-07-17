@@ -8,36 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var game = Game.shared
+    
+    let levelViewModel: LevelViewModel
+    let playerSelectionViewModel: PlayerSelectionViewModel
+    //add the unlock VM
+
+    
     var body: some View {
         NavigationStack {
-            ZStack {
-                LinearGradient(colors: [.mint, .blue], startPoint: .top, endPoint: .bottom)
-                VStack {
-                    
-                    LevelBarView(level: 1, levelXP: 100, currentXP: 20)
-                    Spacer ()
-                
-                    EquationView(terms: exampleTerms(), answer: 0)
-                    Spacer()
-                    
-                    AnswerOptionsView(answerOptions: exampleAnswers())
-                        .padding(30)
-                }
-                .padding()
+            
+            if game.gameState == .levelAnswerEvaluation {
+                LevelView(viewModel: levelViewModel)
+            } else {
+                PlayerSelectionView(viewModel: playerSelectionViewModel)
             }
-            .ignoresSafeArea()
+            
         }
     }
     
-    func exampleTerms() -> [Int] {
-        return [5,12,6]
-    }
     
-    func exampleAnswers() -> [Int] {
-        return [5,4,6,-5]
-    }
 }
 
 #Preview {
-    ContentView()
+    ContentView(levelViewModel: LevelViewModel(level: PreviewExampleBuilder.shared.exampleLevel()), playerSelectionViewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()))
 }

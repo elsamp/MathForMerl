@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct EquationPart {
+struct EquationPart{
     
-    let term: EquationTerm
+    let equationIndex:Int
+    let term: Int
     let partOperator: EquationOperator?
     let isFirstPart: Bool
-    let isAnswerPart: Bool
-    
+    var partId: String {
+        "\(equationIndex)-\(term)"
+    }
 }

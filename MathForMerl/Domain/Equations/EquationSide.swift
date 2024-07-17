@@ -17,7 +17,7 @@ struct EquationSide {
         
         for part in equationParts {
             if part.isFirstPart {
-                totalValue += part.term.term
+                totalValue += part.term
             } else {
                 
                 //TODO: rethink error handling
@@ -31,7 +31,7 @@ struct EquationSide {
     private func resultOf(value: Int, with part: EquationPart) -> Int? {
         
         if let partOperator = part.partOperator {
-            return partOperator.operatorAction(value, part.term.term)
+            return partOperator.operatorAction(value, part.term)
         }
         
         //TODO: should throw error

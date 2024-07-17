@@ -7,10 +7,10 @@
 
 import Foundation
 
-protocol UnlockAttributeProtocol {
+protocol UnlockBranchProtocol {
     
     var currentLevel:Int { get set }
-    var maxLevel: Int { get set }
+    var maxLevel: Int { get }
     var updateGameConfig: (Int, Int) -> Void { get set }
     
 }

@@ -6,3 +6,70 @@
 //
 
 import Foundation
+
+enum GameState {
+    case playerSelection
+    case playerCreation
+    case levelEquationPresented
+    case levelAnswerEvaluation
+    case unlockOptionsPresented
+    case unlockSelection
+}
+
+class Game: ObservableObject {
+    
+    static let shared = Game()
+    
+    var currentPlayer: Player?
+    var playerSelection: PlayerSelection?
+    var level: Level?
+    @Published var gameState: GameState
+    
+    
+    private init() { 
+        self.gameState = .playerSelection
+        //startNewGame()
+    }
+    
+    func startNewGame(){
+        gameState = .playerSelection
+        //reset everything if starting new came from somewhere else
+    }
+    
+    func transitionState(to newState: GameState) {
+        
+        //TODO: add error handling logic
+        switch newState {
+        case .playerSelection:
+            gameState = newState
+            break
+        case .playerCreation:
+            gameState = newState
+            break
+        case .levelEquationPresented:
+            //make sure level is set
+            gameState = newState
+            break
+        case .levelAnswerEvaluation:
+            //can only transition from levelEquationPresented
+            gameState = newState
+            break
+        case .unlockOptionsPresented:
+            gameState = newState
+            break
+        case .unlockSelection:
+            //can only transition from unlockOptionsPresented
+            gameState = newState
+            break
+        }
+        
+        print("Game: game state changed to: \(newState)")
+        
+    }
+    
+    func transitionToLevel(with player: Player) {
+        self.currentPlayer = player
+        transitionState(to: .levelAnswerEvaluation)
+    }
+    
+}

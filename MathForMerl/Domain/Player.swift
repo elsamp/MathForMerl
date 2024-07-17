@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Player {
+    
+    let name: String
+    let currentXP: Int
+    let playerID: String
+    
+    
+}

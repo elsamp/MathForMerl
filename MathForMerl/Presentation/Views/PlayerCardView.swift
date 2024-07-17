@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct PlayerCardView: View {
+    
+    let player: Player
+    let selectionAction: (Player) -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button() {
+            selectionAction(player)
+        } label: {
+            VStack {
+                Image(systemName: "person.circle.fill")
+                    .scaleEffect(CGSize(width: 3.0, height: 3.0))
+                Text(player.name)
+                    .padding(50)
+            }
+            .font(.largeTitle)
+        }
     }
 }
 
 #Preview {
-    PlayerCardView()
+    ZStack {
+        Color.yellow
+        //PlayerCardView()
+    }
+    
 }

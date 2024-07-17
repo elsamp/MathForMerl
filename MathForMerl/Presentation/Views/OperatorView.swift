@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct OperatorView: View {
+    
+    let operatorString:String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(operatorString)
+            .font(.custom("Noteworthy", fixedSize: 70))
+            .foregroundStyle(.black)
+            .fontWeight(.black)
     }
 }
 
 #Preview {
-    OperatorView()
+    ZStack {
+        Color.blue
+        OperatorView(operatorString: "+")
+    }
 }

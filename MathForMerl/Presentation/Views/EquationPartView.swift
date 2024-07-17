@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct EquationPartView: View {
+    
+    let part: EquationPart
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let partOperator = part.partOperator {
+            OperatorView(operatorString: EquationOperator.string(for: partOperator.equationOperator))
+        }
+        
+        TermView(term: part.term)
     }
 }
 
 #Preview {
-    EquationPartView()
+    ZStack {
+        Color.blue
+        EquationPartView(part: PreviewExampleBuilder.shared.exampleEquationPart())
+    }
 }

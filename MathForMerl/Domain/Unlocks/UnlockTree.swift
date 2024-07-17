@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct UnlockTree {
+    
+    var unlockItems: [UnlockBranchProtocol]
+}

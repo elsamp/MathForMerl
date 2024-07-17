@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct LevelViewModel {
+    
+    let level: Level
+    
+}
