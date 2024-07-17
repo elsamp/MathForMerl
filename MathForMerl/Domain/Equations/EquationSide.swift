@@ -9,7 +9,7 @@ import Foundation
 
 struct EquationSide {
     
-    let equationParts: [EquationPart]
+    var equationParts: [EquationPart]
     
     func evaluateSide() -> Int{
         

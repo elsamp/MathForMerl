@@ -13,6 +13,7 @@
 		B0C41B312C48452900F1E09F /* EquationPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B302C48452900F1E09F /* EquationPartView.swift */; };
 		B0C41B332C484D0F00F1E09F /* EquationSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B322C484D0F00F1E09F /* EquationSideView.swift */; };
 		B0C41B352C4858A700F1E09F /* OperatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B342C4858A700F1E09F /* OperatorView.swift */; };
+		B0C41B372C487E0600F1E09F /* AnswerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B362C487E0600F1E09F /* AnswerOptions.swift */; };
 		B0FBAC882C41C3EE002FFFBA /* MathForMerlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAC872C41C3EE002FFFBA /* MathForMerlApp.swift */; };
 		B0FBAC8A2C41C3EE002FFFBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAC892C41C3EE002FFFBA /* ContentView.swift */; };
 		B0FBAC8C2C41C3F0002FFFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FBAC8B2C41C3F0002FFFBA /* Assets.xcassets */; };
@@ -29,7 +30,6 @@
 		B0FBAD142C46F3A4002FFFBA /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD132C46F3A4002FFFBA /* Equation.swift */; };
 		B0FBAD162C46F565002FFFBA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD152C46F565002FFFBA /* Player.swift */; };
 		B0FBAD182C46F7C1002FFFBA /* EquationPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD172C46F7C1002FFFBA /* EquationPart.swift */; };
-		B0FBAD1A2C46F806002FFFBA /* EquationTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD192C46F806002FFFBA /* EquationTerm.swift */; };
 		B0FBAD1C2C46F81B002FFFBA /* EquationOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD1B2C46F81B002FFFBA /* EquationOperator.swift */; };
 		B0FBAD1E2C46FA6B002FFFBA /* EquationSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD1D2C46FA6B002FFFBA /* EquationSide.swift */; };
 		B0FBAD202C46FEAB002FFFBA /* GameBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD1F2C46FEAB002FFFBA /* GameBuilder.swift */; };
@@ -67,6 +67,7 @@
 		B0C41B302C48452900F1E09F /* EquationPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationPartView.swift; sourceTree = "<group>"; };
 		B0C41B322C484D0F00F1E09F /* EquationSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationSideView.swift; sourceTree = "<group>"; };
 		B0C41B342C4858A700F1E09F /* OperatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorView.swift; sourceTree = "<group>"; };
+		B0C41B362C487E0600F1E09F /* AnswerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerOptions.swift; sourceTree = "<group>"; };
 		B0FBAC842C41C3EE002FFFBA /* MathForMerl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathForMerl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FBAC872C41C3EE002FFFBA /* MathForMerlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathForMerlApp.swift; sourceTree = "<group>"; };
 		B0FBAC892C41C3EE002FFFBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		B0FBAD132C46F3A4002FFFBA /* Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
 		B0FBAD152C46F565002FFFBA /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B0FBAD172C46F7C1002FFFBA /* EquationPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationPart.swift; sourceTree = "<group>"; };
-		B0FBAD192C46F806002FFFBA /* EquationTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationTerm.swift; sourceTree = "<group>"; };
 		B0FBAD1B2C46F81B002FFFBA /* EquationOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationOperator.swift; sourceTree = "<group>"; };
 		B0FBAD1D2C46FA6B002FFFBA /* EquationSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationSide.swift; sourceTree = "<group>"; };
 		B0FBAD1F2C46FEAB002FFFBA /* GameBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBuilder.swift; sourceTree = "<group>"; };
@@ -215,14 +215,15 @@
 			isa = PBXGroup;
 			children = (
 				B0FBAD212C472C13002FFFBA /* Protocols */,
-				B0FBAD242C472DE9002FFFBA /* Equations */,
 				B0FBAD252C472E10002FFFBA /* Unlocks */,
+				B0FBAD242C472DE9002FFFBA /* Equations */,
 				B0FBAD0F2C46F37F002FFFBA /* Game.swift */,
 				B0FBAD112C46F38D002FFFBA /* Level.swift */,
 				B0FBAD152C46F565002FFFBA /* Player.swift */,
 				B0FBAD1F2C46FEAB002FFFBA /* GameBuilder.swift */,
 				B0FBAD2A2C472F8C002FFFBA /* GameConfiguration.swift */,
 				B0C41B2E2C481AB400F1E09F /* PlayerSelection.swift */,
+				B0C41B362C487E0600F1E09F /* AnswerOptions.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -247,7 +248,6 @@
 			children = (
 				B0FBAD132C46F3A4002FFFBA /* Equation.swift */,
 				B0FBAD172C46F7C1002FFFBA /* EquationPart.swift */,
-				B0FBAD192C46F806002FFFBA /* EquationTerm.swift */,
 				B0FBAD1B2C46F81B002FFFBA /* EquationOperator.swift */,
 				B0FBAD1D2C46FA6B002FFFBA /* EquationSide.swift */,
 			);
@@ -416,7 +416,6 @@
 				B0FBAD322C480B35002FFFBA /* PlayerCardView.swift in Sources */,
 				B0FBAD072C46EF75002FFFBA /* LevelBarView.swift in Sources */,
 				B0FBAD142C46F3A4002FFFBA /* Equation.swift in Sources */,
-				B0FBAD1A2C46F806002FFFBA /* EquationTerm.swift in Sources */,
 				B0FBAD1C2C46F81B002FFFBA /* EquationOperator.swift in Sources */,
 				B0FBAD102C46F37F002FFFBA /* Game.swift in Sources */,
 				B0FBAD272C472E3D002FFFBA /* UnlockTree.swift in Sources */,
@@ -439,6 +438,7 @@
 				B0FBAD092C46F025002FFFBA /* AnswerOptionsView.swift in Sources */,
 				B0FBAD2B2C472F8C002FFFBA /* GameConfiguration.swift in Sources */,
 				B0C41B352C4858A700F1E09F /* OperatorView.swift in Sources */,
+				B0C41B372C487E0600F1E09F /* AnswerOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

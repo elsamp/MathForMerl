@@ -9,13 +9,13 @@ import SwiftUI
 
 struct AnswerOptionsView: View {
     
-    var answerOptions: [Int]
+    var answerOptions: AnswerOptions
     
     var body: some View {
         
         HStack {
-            ForEach(answerOptions, id: \.self) { number in
-                TermView(term: number)
+            ForEach(answerOptions.answerArray, id: \.self) { number in
+                TermView(term: String(number))
             }
             .padding()
         }
@@ -25,6 +25,6 @@ struct AnswerOptionsView: View {
 #Preview {
     ZStack {
         Color.blue
-        AnswerOptionsView(answerOptions: [4,5,6,2])
+        AnswerOptionsView(answerOptions: PreviewExampleBuilder.shared.exampleAnswerOptions())
     }
 }

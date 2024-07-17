@@ -22,7 +22,7 @@ struct LevelView: View {
                 EquationView(equation: viewModel.level.currentEquation)
                 Spacer()
                 
-                AnswerOptionsView(answerOptions: exampleAnswers())
+                AnswerOptionsView(answerOptions: viewModel.level.answerOptions)
                     .padding(30)
             }
             .padding()

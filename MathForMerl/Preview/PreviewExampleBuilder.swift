@@ -44,7 +44,7 @@ struct PreviewExampleBuilder {
     }
     
     func exampleLevel() -> Level {
-        return Level(levelCount: 2, levelRequiredXP: 100, currentEquation: exampleEquation())
+        return Level(levelCount: 2, levelRequiredXP: 100, currentEquation: exampleEquation(), answerOptions: exampleAnswerOptions())
     }
     
     func exampleEquationSide() -> EquationSide {
@@ -54,6 +54,10 @@ struct PreviewExampleBuilder {
     func exampleEquationPart() -> EquationPart {
         let equationOperator = EquationOperator(equationOperator: .add, operatorAction: EquationOperator.actionFor(operator: .add))
         return EquationPart(equationIndex: 1, term: 8, partOperator: equationOperator, isFirstPart: false)
+    }
+    
+    func exampleAnswerOptions() -> AnswerOptions {
+        AnswerOptions(answerArray: [5,-3,6,12], answerIndex: 3)
     }
 
 }

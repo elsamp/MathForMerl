@@ -12,8 +12,11 @@ struct GameConfiguration {
     static let shared = GameConfiguration()
     
     //Game config constants
-    var levelXPBase = 100
+    let levelXPBase = 100
+    let numAnswerOptions = 4
     
+    
+    //load from saved data
     var maxNumber: Int
     var minNumber: Int
     var availiableOperators: [Operator]
@@ -26,8 +29,8 @@ struct GameConfiguration {
         self.maxNumber = 20
         self.minNumber = -10
         self.availiableOperators = [.add]
-        self.leftSideTermCount = 2
-        self.rightSideTermCount = 1
+        self.leftSideTermCount = 3
+        self.rightSideTermCount = 1 //can only be 1 right now
         
     }
 }

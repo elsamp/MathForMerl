@@ -12,11 +12,14 @@ struct Level {
     let levelCount: Int
     let levelRequiredXP: Int
     var currentEquation: Equation
+    var answerOptions: AnswerOptions
     
-    init(levelCount: Int, levelRequiredXP: Int, currentEquation: Equation) {
+    init(levelCount: Int, levelRequiredXP: Int, currentEquation: Equation, answerOptions: AnswerOptions) {
         self.levelCount = levelCount
         self.levelRequiredXP = levelRequiredXP
         self.currentEquation = currentEquation
+        self.answerOptions = answerOptions
+        
     }
     
     static func requiredXP(for level: Int) -> Int {

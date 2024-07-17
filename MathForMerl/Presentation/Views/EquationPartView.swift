@@ -16,7 +16,12 @@ struct EquationPartView: View {
             OperatorView(operatorString: EquationOperator.string(for: partOperator.equationOperator))
         }
         
-        TermView(term: part.term)
+        if !part.isAnswerPart {
+            TermView(term: String(part.term))
+        } else {
+            TermView(term: "?")
+        }
+        
     }
 }
 

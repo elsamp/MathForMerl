@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TermView: View {
     
-    var term: Int
+    var term: String
     
     var body: some View {
         
@@ -19,7 +19,7 @@ struct TermView: View {
                 .cornerRadius(5)
                 .frame(width:130, height: 130)
                 
-            Text(String(term))
+            Text(term)
                 .font(.custom("Noteworthy", fixedSize: 70))
                 .foregroundStyle(.indigo)
                 .fontWeight(.black)
@@ -31,6 +31,6 @@ struct TermView: View {
 #Preview {
     ZStack {
         Color.blue
-        TermView(term: 5)
+        TermView(term: "5")
     }
 }

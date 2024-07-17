@@ -56,6 +56,22 @@ struct GameBuilder {
         var partArray = [EquationPart(equationIndex: 1, term: leftSideTotal, partOperator: nil, isFirstPart: true)]
         return EquationSide(equationParts: partArray)
     }
+    
+    func buildAnswerOptions(for equation: Equation) -> AnswerOptions {
+        
+        let answer = equation.answerPart.term
+        var answerArray = [Int]()
+        
+        for _ in 0..<(config.numAnswerOptions - 1) {
+            answerArray.append(Int.random(in: config.minNumber...config.maxNumber))
+        }
+        
+        //TODO: revisit, this might not be needed
+        var index = Int.random(in: 0..<config.numAnswerOptions)
+        answerArray.insert(answer, at: index)
+        
+        return AnswerOptions(answerArray: answerArray, answerIndex: index)
+    }
                                     
     func buildRandomOperator() -> EquationOperator{
         
@@ -65,7 +81,8 @@ struct GameBuilder {
     
     func buildLevel() -> Level {
         //TODO: load this from saved data
-        return Level(levelCount: 1, levelRequiredXP: Level.requiredXP(for: 1), currentEquation: buildEquation())
+        let equation = buildEquation()
+        return Level(levelCount: 1, levelRequiredXP: Level.requiredXP(for: 1), currentEquation: equation, answerOptions: buildAnswerOptions(for: equation))
     }
                                         
 }
