@@ -16,6 +16,7 @@ struct EquationPartView: View {
             OperatorView(operatorString: EquationOperator.string(for: partOperator.equationOperator))
         }
         
+        //TODO: make ? look different so it's more noticeable
         if !part.isAnswerPart {
             TermView(term: String(part.term))
         } else {

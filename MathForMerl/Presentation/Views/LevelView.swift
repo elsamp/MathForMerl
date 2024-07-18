@@ -16,7 +16,7 @@ struct LevelView: View {
             LinearGradient(colors: [.mint, .blue], startPoint: .top, endPoint: .bottom)
             VStack {
                 
-                LevelBarView(level: 1, levelXP: 100, currentXP: 20)
+                LevelBarView(level: 1, levelXP: viewModel.level.levelRequiredXP, playerXP: 20)
                 Spacer ()
             
                 EquationView(equation: viewModel.level.currentEquation)

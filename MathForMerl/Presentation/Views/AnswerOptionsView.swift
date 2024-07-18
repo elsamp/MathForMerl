@@ -15,7 +15,12 @@ struct AnswerOptionsView: View {
         
         HStack {
             ForEach(answerOptions.answerArray, id: \.self) { number in
-                TermView(term: String(number))
+                
+                Button(){
+                    //call action for evaluating and granting points
+                } label: {
+                    TermView(term: String(number))
+                }
             }
             .padding()
         }
