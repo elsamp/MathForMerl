@@ -7,11 +7,17 @@
 
 import Foundation
 
-struct Player {
+@Observable
+class Player: Identifiable {
     
     let name: String
-    let currentXP: Int
-    let playerID: String
+    var currentXP: Int
+    let id = UUID()
+    
+    init(name: String, currentXP: Int) {
+        self.name = name
+        self.currentXP = currentXP
+    }
     
     
 }

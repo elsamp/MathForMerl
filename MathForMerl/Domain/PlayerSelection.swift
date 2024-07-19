@@ -18,9 +18,9 @@ struct PlayerSelection {
     
     mutating private func loadPlayerOptions() {
         
-        //TODO: load saved player profiles
+        //TODO: load saved player profiles... should be doing this in the builder
         
-        let playerArray = [Player(name: "Merl", currentXP: 20, playerID: "ID1"), Player(name: "Joe", currentXP: 10, playerID: "ID2")]
+        let playerArray = [Player(name: "Merl", currentXP: 20), Player(name: "Joe", currentXP: 10)]
         playerOptions = playerArray
     }
     

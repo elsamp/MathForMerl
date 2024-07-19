@@ -16,14 +16,15 @@ enum GameState {
     case unlockSelection
 }
 
-class Game: ObservableObject {
+@Observable
+class Game {
     
     static let shared = Game()
     
     var currentPlayer: Player?
     var playerSelection: PlayerSelection?
     var level: Level?
-    @Published var gameState: GameState
+    var gameState: GameState //TODO: move to EnvironmentObject
     
     
     private init() { 

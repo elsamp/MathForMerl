@@ -9,20 +9,21 @@ import SwiftUI
 
 struct LevelView: View {
     
-    let viewModel: LevelViewModel
+    @Bindable var viewModel: LevelViewModel
     
     var body: some View {
         ZStack {
             LinearGradient(colors: [.mint, .blue], startPoint: .top, endPoint: .bottom)
             VStack {
                 
-                LevelBarView(level: 1, levelXP: viewModel.level.levelRequiredXP, playerXP: 20)
+                //TODO: fix the explicit unwrap
+                LevelBarView(level: viewModel.level, player: viewModel.player)
                 Spacer ()
             
                 EquationView(equation: viewModel.level.currentEquation)
                 Spacer()
                 
-                AnswerOptionsView(answerOptions: viewModel.level.answerOptions)
+                AnswerOptionsView(answerOptions: viewModel.level.answerOptions, selectionAction: viewModel.check(answer:))
                     .padding(30)
             }
             .padding()
@@ -40,5 +41,5 @@ struct LevelView: View {
 }
 
 #Preview {
-    LevelView(viewModel: LevelViewModel(level: PreviewExampleBuilder.shared.exampleLevel()))
+    LevelView(viewModel: LevelViewModel(player: PreviewExampleBuilder.shared.examplePlayer()))
 }

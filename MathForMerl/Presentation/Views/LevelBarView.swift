@@ -9,14 +9,13 @@ import SwiftUI
 
 struct LevelBarView: View {
     
-    var level: Int
-    var levelXP: Int
-    var playerXP: Int
+    var level: Level
+    @State var player: Player
     
     var body: some View {
         ZStack {
 
-            let widthMultiplier = Double(playerXP)/Double(levelXP)
+            let widthMultiplier = Double(player.currentXP)/Double(level.levelRequiredXP)
             
             //Level Bar
             GeometryReader { geometry in
@@ -44,7 +43,7 @@ struct LevelBarView: View {
                         Circle()
                             .fill(.white)
                             .frame(width: 100)
-                        Text(String(level))
+                        Text(String(level.levelCount))
                             .font(.system(size: 70))
                             .foregroundStyle(.blue)
                             .fontWeight(.black)
@@ -71,6 +70,7 @@ struct LevelBarView: View {
 #Preview {
     ZStack {
         Color.blue
-        LevelBarView(level: 1, levelXP: 30, playerXP: 20)
+        LevelBarView(level: PreviewExampleBuilder.shared.exampleLevel(),
+                     player: PreviewExampleBuilder.shared.examplePlayer())
     }
 }

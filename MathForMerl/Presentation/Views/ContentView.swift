@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var game = Game.shared
-    
-    let levelViewModel: LevelViewModel
+    @State private var game = Game.shared
+
     let playerSelectionViewModel: PlayerSelectionViewModel
     //add the unlock VM
 
@@ -20,9 +19,19 @@ struct ContentView: View {
         NavigationStack {
             
             if game.gameState == .levelAnswerEvaluation {
-                LevelView(viewModel: levelViewModel)
+                
+                if let player = game.currentPlayer {
+                    
+                    //TODO: reevaluate if this is the right place to create the viewModel
+                    let levelViewModel = LevelViewModel(player: player)
+                    LevelView(viewModel: levelViewModel)
+                        .transition(.opacity)
+                }
+                
+                
             } else {
                 PlayerSelectionView(viewModel: playerSelectionViewModel)
+                    .transition(.opacity)
             }
             
         }
@@ -32,5 +41,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(levelViewModel: LevelViewModel(level: PreviewExampleBuilder.shared.exampleLevel()), playerSelectionViewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()))
+    ContentView(playerSelectionViewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()))
 }

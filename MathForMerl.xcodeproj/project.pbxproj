@@ -32,7 +32,7 @@
 		B0FBAD182C46F7C1002FFFBA /* EquationPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD172C46F7C1002FFFBA /* EquationPart.swift */; };
 		B0FBAD1C2C46F81B002FFFBA /* EquationOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD1B2C46F81B002FFFBA /* EquationOperator.swift */; };
 		B0FBAD1E2C46FA6B002FFFBA /* EquationSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD1D2C46FA6B002FFFBA /* EquationSide.swift */; };
-		B0FBAD202C46FEAB002FFFBA /* GameBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD1F2C46FEAB002FFFBA /* GameBuilder.swift */; };
+		B0FBAD202C46FEAB002FFFBA /* LevelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD1F2C46FEAB002FFFBA /* LevelBuilder.swift */; };
 		B0FBAD232C472CB8002FFFBA /* UnlockBranchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD222C472CB8002FFFBA /* UnlockBranchProtocol.swift */; };
 		B0FBAD272C472E3D002FFFBA /* UnlockTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD262C472E3D002FFFBA /* UnlockTree.swift */; };
 		B0FBAD292C472E77002FFFBA /* UnlockBranchTermCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAD282C472E77002FFFBA /* UnlockBranchTermCount.swift */; };
@@ -89,7 +89,7 @@
 		B0FBAD172C46F7C1002FFFBA /* EquationPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationPart.swift; sourceTree = "<group>"; };
 		B0FBAD1B2C46F81B002FFFBA /* EquationOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationOperator.swift; sourceTree = "<group>"; };
 		B0FBAD1D2C46FA6B002FFFBA /* EquationSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationSide.swift; sourceTree = "<group>"; };
-		B0FBAD1F2C46FEAB002FFFBA /* GameBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBuilder.swift; sourceTree = "<group>"; };
+		B0FBAD1F2C46FEAB002FFFBA /* LevelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelBuilder.swift; sourceTree = "<group>"; };
 		B0FBAD222C472CB8002FFFBA /* UnlockBranchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockBranchProtocol.swift; sourceTree = "<group>"; };
 		B0FBAD262C472E3D002FFFBA /* UnlockTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockTree.swift; sourceTree = "<group>"; };
 		B0FBAD282C472E77002FFFBA /* UnlockBranchTermCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockBranchTermCount.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				B0FBAD0F2C46F37F002FFFBA /* Game.swift */,
 				B0FBAD112C46F38D002FFFBA /* Level.swift */,
 				B0FBAD152C46F565002FFFBA /* Player.swift */,
-				B0FBAD1F2C46FEAB002FFFBA /* GameBuilder.swift */,
+				B0FBAD1F2C46FEAB002FFFBA /* LevelBuilder.swift */,
 				B0FBAD2A2C472F8C002FFFBA /* GameConfiguration.swift */,
 				B0C41B2E2C481AB400F1E09F /* PlayerSelection.swift */,
 				B0C41B362C487E0600F1E09F /* AnswerOptions.swift */,
@@ -411,7 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0FBAD292C472E77002FFFBA /* UnlockBranchTermCount.swift in Sources */,
-				B0FBAD202C46FEAB002FFFBA /* GameBuilder.swift in Sources */,
+				B0FBAD202C46FEAB002FFFBA /* LevelBuilder.swift in Sources */,
 				B0FBAC8A2C41C3EE002FFFBA /* ContentView.swift in Sources */,
 				B0FBAD322C480B35002FFFBA /* PlayerCardView.swift in Sources */,
 				B0FBAD072C46EF75002FFFBA /* LevelBarView.swift in Sources */,

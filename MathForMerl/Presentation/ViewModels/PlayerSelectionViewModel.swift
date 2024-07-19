@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct PlayerSelectionViewModel {
+@Observable
+class PlayerSelectionViewModel {
     
     var playerSelection: PlayerSelection
+    
+    init(playerSelection: PlayerSelection) {
+        self.playerSelection = playerSelection
+    }
     
     func select(player: Player) {
         print("PlayerSelectionViewModel: selected player \(player)")

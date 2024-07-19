@@ -7,19 +7,20 @@
 
 import Foundation
 
-struct Level {
+class Level {
     
     let levelCount: Int
     let levelRequiredXP: Int
     var currentEquation: Equation
     var answerOptions: AnswerOptions
+    var player: Player
     
-    init(levelCount: Int, levelRequiredXP: Int, currentEquation: Equation, answerOptions: AnswerOptions) {
+    init(levelCount: Int, levelRequiredXP: Int, currentEquation: Equation, answerOptions: AnswerOptions, player: Player) {
         self.levelCount = levelCount
         self.levelRequiredXP = levelRequiredXP
         self.currentEquation = currentEquation
         self.answerOptions = answerOptions
-        
+        self.player = player
     }
     
     static func requiredXP(for level: Int) -> Int {
@@ -27,7 +28,7 @@ struct Level {
     }
     
     func nextEquation() -> Equation {
-        GameBuilder.shared.buildEquation()
+        LevelBuilder.shared.buildEquation()
     }
 
 }

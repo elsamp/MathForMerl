@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlayerSelectionView: View {
     
-    let viewModel:PlayerSelectionViewModel
+    @Bindable var viewModel:PlayerSelectionViewModel
     
     var body: some View {
         ZStack {
@@ -18,7 +18,7 @@ struct PlayerSelectionView: View {
             HStack {
                 
                 if let players = viewModel.availablePlayers() {
-                    ForEach(players, id: \.playerID) { player in
+                    ForEach(players) { player in
                         PlayerCardView(player: player, selectionAction: { player in viewModel.select(player: player) })
                     }
                 }

@@ -7,13 +7,22 @@
 
 import Foundation
 
-struct GameBuilder {
+struct LevelBuilder {
     
-    static let shared = GameBuilder()
+    static let shared = LevelBuilder()
     let config = GameConfiguration.shared
     
     private init() { }
 
+    func buildLevel() -> Level {
+        
+        //TODO: get this from active player selection
+        let player = Player(name: "Merl", currentXP: 0)
+        
+        //TODO: load this from saved data
+        let equation = buildEquation()
+        return Level(levelCount: 1, levelRequiredXP: Level.requiredXP(for: 1), currentEquation: equation, answerOptions: buildAnswerOptions(for: equation), player: player)
+    }
     
     func buildEquation() -> Equation {
         
@@ -63,7 +72,19 @@ struct GameBuilder {
         var answerArray = [Int]()
         
         for _ in 0..<(config.numAnswerOptions - 1) {
-            answerArray.append(Int.random(in: config.minNumber...config.maxNumber))
+            
+            var unique = false
+            var answerOption: Int?
+            
+            while !unique {
+                
+                answerOption = Int.random(in: config.minNumber...config.maxNumber)
+                if !answerArray.contains(answerOption ?? 0){
+                    unique = true
+                }
+            }
+            
+            answerArray.append(answerOption ?? 0)
         }
         
         //TODO: revisit, this might not be needed
@@ -79,10 +100,6 @@ struct GameBuilder {
         return EquationOperator(equationOperator:chosenOperater , operatorAction: EquationOperator.actionFor(operator: chosenOperater))
     }
     
-    func buildLevel() -> Level {
-        //TODO: load this from saved data
-        let equation = buildEquation()
-        return Level(levelCount: 1, levelRequiredXP: Level.requiredXP(for: 1), currentEquation: equation, answerOptions: buildAnswerOptions(for: equation))
-    }
+    
                                         
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct AnswerOptionsView: View {
     
     var answerOptions: AnswerOptions
+    var selectionAction: (Int) -> Bool
     
     var body: some View {
         
@@ -18,6 +19,7 @@ struct AnswerOptionsView: View {
                 
                 Button(){
                     //call action for evaluating and granting points
+                    selectionAction(number)
                 } label: {
                     TermView(term: String(number))
                 }
@@ -30,6 +32,6 @@ struct AnswerOptionsView: View {
 #Preview {
     ZStack {
         Color.blue
-        AnswerOptionsView(answerOptions: PreviewExampleBuilder.shared.exampleAnswerOptions())
+        AnswerOptionsView(answerOptions: PreviewExampleBuilder.shared.exampleAnswerOptions(), selectionAction: PreviewExampleBuilder.shared.exampleAnswerSelectionAction())
     }
 }

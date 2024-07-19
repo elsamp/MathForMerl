@@ -12,8 +12,7 @@ struct MathForMerlApp: App {
     var body: some Scene {
         WindowGroup {
 
-            ContentView(levelViewModel: LevelViewModel(level: GameBuilder.shared.buildLevel()),
-                        playerSelectionViewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()))
+            ContentView(playerSelectionViewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()))
         }
     }
 }

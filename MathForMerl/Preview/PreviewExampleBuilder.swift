@@ -36,19 +36,19 @@ struct PreviewExampleBuilder {
     }
     
     func examplePlayer() -> Player {
-        return Player(name: "Merl", currentXP: 34, playerID: "PLYERID")
+        return Player(name: "Merl", currentXP: 34)
     }
     
     func exampleEquation() -> Equation {
-        return GameBuilder.shared.buildEquation()
+        return LevelBuilder.shared.buildEquation()
     }
     
     func exampleLevel() -> Level {
-        return Level(levelCount: 2, levelRequiredXP: 100, currentEquation: exampleEquation(), answerOptions: exampleAnswerOptions())
+        return Level(levelCount: 2, levelRequiredXP: 100, currentEquation: exampleEquation(), answerOptions: exampleAnswerOptions(), player: examplePlayer())
     }
     
     func exampleEquationSide() -> EquationSide {
-        return GameBuilder.shared.buildEquationLeftSide(termCount: 3)
+        return LevelBuilder.shared.buildEquationLeftSide(termCount: 3)
     }
     
     func exampleEquationPart() -> EquationPart {
@@ -58,6 +58,10 @@ struct PreviewExampleBuilder {
     
     func exampleAnswerOptions() -> AnswerOptions {
         AnswerOptions(answerArray: [5,-3,6,12], answerIndex: 3)
+    }
+    
+    func exampleAnswerSelectionAction() -> ((Int) -> Bool) {
+        return { num in true }
     }
 
 }
