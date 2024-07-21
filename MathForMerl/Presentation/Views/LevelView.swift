@@ -16,27 +16,17 @@ struct LevelView: View {
             LinearGradient(colors: [.mint, .blue], startPoint: .top, endPoint: .bottom)
             VStack {
                 
-                //TODO: fix the explicit unwrap
                 LevelBarView(level: viewModel.level, player: viewModel.player)
-                Spacer ()
-            
+                    .padding(.top, 30)
+                Spacer()
                 EquationView(equation: viewModel.level.currentEquation)
                 Spacer()
-                
                 AnswerOptionsView(answerOptions: viewModel.level.answerOptions, selectionAction: viewModel.check(answer:))
-                    .padding(30)
+                    .padding(.bottom, 30)
             }
             .padding()
         }
         .ignoresSafeArea()
-    }
-    
-    func exampleTerms() -> [Int] {
-        return [5,12,6]
-    }
-    
-    func exampleAnswers() -> [Int] {
-        return [5,4,6,-5]
     }
 }
 

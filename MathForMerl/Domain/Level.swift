@@ -7,6 +7,7 @@
 
 import Foundation
 
+@Observable
 class Level {
     
     let levelCount: Int

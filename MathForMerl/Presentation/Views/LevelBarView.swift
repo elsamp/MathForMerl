@@ -18,26 +18,27 @@ struct LevelBarView: View {
             let widthMultiplier = Double(player.currentXP)/Double(level.levelRequiredXP)
             
             //Level Bar
-            GeometryReader { geometry in
-                Group {
-                    //Background Bar (total XP needed)
-                    Rectangle()
-                        .fill(.gray)
-                        .frame(maxWidth:geometry.size.width, maxHeight: 40)
-                        .border(.black, width: 2)
-                    
-                    //Forground bar (player current XP)
-                    Rectangle()
-                        .fill(.green)
-                        .frame(width:(geometry.size.width * widthMultiplier) , height: 40, alignment: .leading)
-                        .border(.black, width: 2)
-                }
-                .frame(maxHeight: geometry.size.height * 0.25)
-                .padding([.leading, .trailing], 90)
-
+            ZStack(alignment: .leading) {
+                //Background Bar (total XP needed)
+                Rectangle()
+                    .fill(.gray)
+                    .frame(height: 40)
+                    .border(.black, width: 2)
                 
-                //Icons
-                HStack {
+                //Forground bar (player current XP)
+                Rectangle()
+                    .fill(.green)
+                    .frame(height: 40)
+                    .containerRelativeFrame(.horizontal) { width, axis in
+                        width * widthMultiplier
+                    }
+                    .border(.black, width: 2)
+            }
+            .padding(.horizontal, 90)
+
+
+            //Icons
+            HStack(alignment: .top) {
                     //Level Indicator
                     ZStack {
                         Circle()
@@ -56,20 +57,17 @@ struct LevelBarView: View {
                     Rectangle()
                         .fill(.gray)
                         .frame(width:100, height: 100)
-                    
-                }
-                .frame(maxHeight: geometry.size.height * 0.25)
-        
+
             }
             
         }
-        .padding(30)
+        .padding(.horizontal, 30)
     }
 }
 
 #Preview {
     ZStack {
-        Color.blue
+        Color.indigo
         LevelBarView(level: PreviewExampleBuilder.shared.exampleLevel(),
                      player: PreviewExampleBuilder.shared.examplePlayer())
     }

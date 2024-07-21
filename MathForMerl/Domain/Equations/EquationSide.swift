@@ -28,6 +28,8 @@ struct EquationSide {
         return totalValue
     }
     
+    //Given a running total, calculated value and a part, returns back the new total
+    //after applying the part oporator and part term to the passed total
     private func resultOf(value: Int, with part: EquationPart) -> Int? {
         
         if let partOperator = part.partOperator {
