@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LevelView: View {
     
-    
     @Bindable var viewModel: LevelViewModel
     
     var body: some View {
@@ -26,6 +25,11 @@ struct LevelView: View {
                     .padding(.bottom, 30)
             }
             .padding()
+            
+            if Game.shared.gameState == GameState.unlockOptionsPresented {
+                UnlockSelectionView()
+                    .padding(90)
+            }
         }
         .ignoresSafeArea()
     }

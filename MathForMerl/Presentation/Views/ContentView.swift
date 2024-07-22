@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State private var game = Game.shared
+
     @State private var path = NavigationPath()
-
     let playerSelectionViewModel: PlayerSelectionViewModel
-    //add the unlock VM
-
     
     var body: some View {
         NavigationStack(path: $path) {

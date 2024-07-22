@@ -14,6 +14,7 @@
 		B0C41B332C484D0F00F1E09F /* EquationSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B322C484D0F00F1E09F /* EquationSideView.swift */; };
 		B0C41B352C4858A700F1E09F /* OperatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B342C4858A700F1E09F /* OperatorView.swift */; };
 		B0C41B372C487E0600F1E09F /* AnswerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B362C487E0600F1E09F /* AnswerOptions.swift */; };
+		B0D796BF2C4EDE4D00630156 /* UnlockSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D796BE2C4EDE4D00630156 /* UnlockSelectionView.swift */; };
 		B0FBAC882C41C3EE002FFFBA /* MathForMerlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAC872C41C3EE002FFFBA /* MathForMerlApp.swift */; };
 		B0FBAC8A2C41C3EE002FFFBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FBAC892C41C3EE002FFFBA /* ContentView.swift */; };
 		B0FBAC8C2C41C3F0002FFFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FBAC8B2C41C3F0002FFFBA /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		B0C41B322C484D0F00F1E09F /* EquationSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationSideView.swift; sourceTree = "<group>"; };
 		B0C41B342C4858A700F1E09F /* OperatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorView.swift; sourceTree = "<group>"; };
 		B0C41B362C487E0600F1E09F /* AnswerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerOptions.swift; sourceTree = "<group>"; };
+		B0D796BE2C4EDE4D00630156 /* UnlockSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockSelectionView.swift; sourceTree = "<group>"; };
 		B0FBAC842C41C3EE002FFFBA /* MathForMerl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathForMerl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FBAC872C41C3EE002FFFBA /* MathForMerlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathForMerlApp.swift; sourceTree = "<group>"; };
 		B0FBAC892C41C3EE002FFFBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0C41B9C2C4ED4EB00F1E09F /* Player Selection */ = {
+			isa = PBXGroup;
+			children = (
+				B0FBAD2F2C4806AF002FFFBA /* PlayerSelectionView.swift */,
+				B0FBAD312C480B35002FFFBA /* PlayerCardView.swift */,
+			);
+			path = "Player Selection";
+			sourceTree = "<group>";
+		};
+		B0C41B9D2C4ED51400F1E09F /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				B0C41B2A2C4814B300F1E09F /* LevelView.swift */,
+				B0C41B9F2C4ED55C00F1E09F /* ProgressBar */,
+				B0C41B9E2C4ED53200F1E09F /* Equation */,
+				B0FBAD082C46F025002FFFBA /* AnswerOptionsView.swift */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		B0C41B9E2C4ED53200F1E09F /* Equation */ = {
+			isa = PBXGroup;
+			children = (
+				B0FBAD042C46EE4F002FFFBA /* EquationView.swift */,
+				B0C41B302C48452900F1E09F /* EquationPartView.swift */,
+				B0C41B322C484D0F00F1E09F /* EquationSideView.swift */,
+				B0C41B342C4858A700F1E09F /* OperatorView.swift */,
+				B0FBAD0A2C46F05D002FFFBA /* TermView.swift */,
+			);
+			path = Equation;
+			sourceTree = "<group>";
+		};
+		B0C41B9F2C4ED55C00F1E09F /* ProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				B0FBAD062C46EF75002FFFBA /* LevelBarView.swift */,
+			);
+			path = ProgressBar;
+			sourceTree = "<group>";
+		};
 		B0FBAC7B2C41C3EE002FFFBA = {
 			isa = PBXGroup;
 			children = (
@@ -188,16 +230,9 @@
 			isa = PBXGroup;
 			children = (
 				B0FBAC892C41C3EE002FFFBA /* ContentView.swift */,
-				B0FBAD042C46EE4F002FFFBA /* EquationView.swift */,
-				B0FBAD062C46EF75002FFFBA /* LevelBarView.swift */,
-				B0FBAD082C46F025002FFFBA /* AnswerOptionsView.swift */,
-				B0FBAD0A2C46F05D002FFFBA /* TermView.swift */,
-				B0FBAD2F2C4806AF002FFFBA /* PlayerSelectionView.swift */,
-				B0FBAD312C480B35002FFFBA /* PlayerCardView.swift */,
-				B0C41B2A2C4814B300F1E09F /* LevelView.swift */,
-				B0C41B302C48452900F1E09F /* EquationPartView.swift */,
-				B0C41B322C484D0F00F1E09F /* EquationSideView.swift */,
-				B0C41B342C4858A700F1E09F /* OperatorView.swift */,
+				B0C41B9D2C4ED51400F1E09F /* Level */,
+				B0C41B9C2C4ED4EB00F1E09F /* Player Selection */,
+				B0D796BE2C4EDE4D00630156 /* UnlockSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +470,7 @@
 				B0C41B312C48452900F1E09F /* EquationPartView.swift in Sources */,
 				B0FBAD302C4806AF002FFFBA /* PlayerSelectionView.swift in Sources */,
 				B0FBAD1E2C46FA6B002FFFBA /* EquationSide.swift in Sources */,
+				B0D796BF2C4EDE4D00630156 /* UnlockSelectionView.swift in Sources */,
 				B0FBAD092C46F025002FFFBA /* AnswerOptionsView.swift in Sources */,
 				B0FBAD2B2C472F8C002FFFBA /* GameConfiguration.swift in Sources */,
 				B0C41B352C4858A700F1E09F /* OperatorView.swift in Sources */,

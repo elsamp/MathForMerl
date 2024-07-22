@@ -73,4 +73,8 @@ class Game {
         transitionState(to: .levelAnswerEvaluation)
     }
     
+    func transitionToUnlockSelection() {
+        transitionState(to: .unlockOptionsPresented)
+    }
+    
 }

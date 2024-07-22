@@ -29,9 +29,9 @@ struct PlayerSelectionView: View {
                                 .transition(.opacity)
                         }
                     }
-                    
-                    //TODO: add player creation card
                 }
+                
+                //TODO: add player creation card
             }
             
         }

@@ -29,8 +29,7 @@ class LevelViewModel {
             
             print("Correct! adding xp")
             
-            // TODO: make this not go over the level bounds
-            player.currentXP += 10
+            level.grantXp(to: player)
         }
         
         nextEquation()

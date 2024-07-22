@@ -15,6 +15,7 @@ class Level {
     var currentEquation: Equation
     var answerOptions: AnswerOptions
     var player: Player
+    var isComplete = false
     
     init(levelCount: Int, levelRequiredXP: Int, currentEquation: Equation, answerOptions: AnswerOptions, player: Player) {
         self.levelCount = levelCount
@@ -26,6 +27,23 @@ class Level {
     
     static func requiredXP(for level: Int) -> Int {
         Int(round(Double(GameConfiguration.shared.levelXPBase) * Double(level) * 0.8))
+    }
+    
+    func grantXp(to player: Player) {
+        // TODO: make this fancier and more nuanced
+        let newXpTotal = player.currentXP + 10
+        
+        if newXpTotal < levelRequiredXP {
+            player.currentXP = newXpTotal
+        } else {
+            player.currentXP = levelRequiredXP
+            isComplete = true
+            Game.shared.transitionToUnlockSelection()
+            
+            print("Level complete!")
+        }
+        
+        print("Player XP is: \(player.currentXP)  |  Level Total XP is: \(levelRequiredXP)")
     }
     
     func nextEquation() {

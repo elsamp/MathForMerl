@@ -12,33 +12,41 @@ struct LevelBarView: View {
     var level: Level
     @State var player: Player
     
+    private let showIcons = true //for developer testing only
+    private let totalWidthMultiplier = 0.8
+    private let barHeight = 40.0
+    
     var body: some View {
         ZStack {
 
-            let widthMultiplier = Double(player.currentXP)/Double(level.levelRequiredXP)
+            let xPwidthMultiplier = Double(player.currentXP)/Double(level.levelRequiredXP)
             
             //Level Bar
             ZStack(alignment: .leading) {
-                //Background Bar (total XP needed)
-                Rectangle()
-                    .fill(.gray)
-                    .frame(height: 40)
-                    .border(.black, width: 2)
-                
-                //Forground bar (player current XP)
-                Rectangle()
-                    .fill(.green)
-                    .frame(height: 40)
-                    .containerRelativeFrame(.horizontal) { width, axis in
-                        width * widthMultiplier
-                    }
-                    .border(.black, width: 2)
+
+                    //Background Bar (total XP needed)
+                    Rectangle()
+                        .fill(.gray)
+                        .frame(height: barHeight)
+                        .border(.black, width: 2)
+                    
+                    //Forground bar (player current XP)
+                    Rectangle()
+                        .fill(.green)
+                        .frame(height: barHeight)
+                        .containerRelativeFrame(.horizontal) { width, axis in
+                            width * xPwidthMultiplier * totalWidthMultiplier
+                        }
+                        .border(.black, width: 2)
+
             }
-            .padding(.horizontal, 90)
+            .containerRelativeFrame(.horizontal) { width, axis in
+                width * totalWidthMultiplier
+            }
 
-
-            //Icons
-            HStack(alignment: .top) {
+            if showIcons {
+                //Icons
+                HStack(alignment: .top) {
                     //Level Indicator
                     ZStack {
                         Circle()
@@ -57,7 +65,8 @@ struct LevelBarView: View {
                     Rectangle()
                         .fill(.gray)
                         .frame(width:100, height: 100)
-
+                    
+                }
             }
             
         }
