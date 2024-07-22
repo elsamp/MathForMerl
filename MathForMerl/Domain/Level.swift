@@ -28,8 +28,9 @@ class Level {
         Int(round(Double(GameConfiguration.shared.levelXPBase) * Double(level) * 0.8))
     }
     
-    func nextEquation() -> Equation {
-        LevelBuilder.shared.buildEquation()
+    func nextEquation() {
+        currentEquation = LevelBuilder.shared.buildEquation()
+        answerOptions = LevelBuilder.shared.buildAnswerOptions(for: currentEquation)
     }
 
 }
