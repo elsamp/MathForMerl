@@ -10,11 +10,13 @@ import SwiftUI
 struct PlayerCardView: View {
     
     let player: Player
+    @Binding var path: NavigationPath
     let selectionAction: (Player) -> Void
     
     var body: some View {
         Button() {
             selectionAction(player)
+            path.append(player)
         } label: {
             VStack {
                 Image(systemName: "person.circle.fill")

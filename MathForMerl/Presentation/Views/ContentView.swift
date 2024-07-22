@@ -10,30 +10,17 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var game = Game.shared
+    @State private var path = NavigationPath()
 
     let playerSelectionViewModel: PlayerSelectionViewModel
     //add the unlock VM
 
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             
-            if game.gameState == .levelAnswerEvaluation {
-                
-                if let player = game.currentPlayer {
-                    
-                    //TODO: reevaluate if this is the right place to create the viewModel
-                    let levelViewModel = LevelViewModel(player: player)
-                    LevelView(viewModel: levelViewModel)
-                        .transition(.opacity)
-                }
-                
-                
-            } else {
-                PlayerSelectionView(viewModel: playerSelectionViewModel)
+            PlayerSelectionView(viewModel: playerSelectionViewModel, path: $path)
                     .transition(.opacity)
-            }
-            
         }
     }
     

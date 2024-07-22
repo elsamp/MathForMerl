@@ -20,6 +20,8 @@ class LevelViewModel {
     
     //TODO: fix the injection
     func check(answer: Int) -> Bool {
+        
+        Game.shared.transitionState(to: .levelAnswerEvaluation)
         let result = level.currentEquation.answerPart.term == answer
         
         //TODO: move this so it isn't a side effect
@@ -30,6 +32,8 @@ class LevelViewModel {
             // TODO: make this not go over the level bounds
             player.currentXP += 10
         }
+        
+        
         
         return result
     }

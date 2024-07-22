@@ -10,6 +10,7 @@ import SwiftUI
 struct PlayerSelectionView: View {
     
     @Bindable var viewModel:PlayerSelectionViewModel
+    @Binding var path: NavigationPath
     
     var body: some View {
         ZStack {
@@ -19,11 +20,18 @@ struct PlayerSelectionView: View {
                 
                 if let players = viewModel.availablePlayers() {
                     ForEach(players) { player in
-                        PlayerCardView(player: player, selectionAction: { player in viewModel.select(player: player) })
+                        PlayerCardView(player: player, path: $path, selectionAction: { player in
+                            viewModel.select(player: player)
+                        })
+                        .navigationDestination(for: Player.self) { p in
+                            let levelViewModel = LevelViewModel(player: p)
+                            LevelView(viewModel: levelViewModel)
+                                .transition(.opacity)
+                        }
                     }
+                    
+                    //TODO: add player creation card
                 }
-                
-                //TODO: add playercreation card
             }
             
         }
@@ -33,5 +41,6 @@ struct PlayerSelectionView: View {
 
 #Preview {
     
-    PlayerSelectionView(viewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()))
+    @State var path = NavigationPath()
+    return PlayerSelectionView(viewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()), path: $path)
 }
