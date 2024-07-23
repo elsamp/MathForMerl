@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct MathForMerlApp: App {
+    
+    @StateObject var gameViewModel = GameViewModel()
+    
     var body: some Scene {
         WindowGroup {
 
-            ContentView(playerSelectionViewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()))
+            GameView()
         }
+        .environmentObject(gameViewModel)
     }
 }

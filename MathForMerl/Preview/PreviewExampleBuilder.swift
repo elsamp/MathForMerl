@@ -13,30 +13,8 @@ struct PreviewExampleBuilder {
     
     init() { }
     
-    func exampleGame(at state: GameState){
-        
-        switch state {
-        case .playerSelection:
-            Game.shared.transitionState(to: .playerSelection)
-        case .playerCreation:
-            Game.shared.transitionState(to: .playerCreation)
-        case .levelEquationPresented:
-            Game.shared.transitionToLevel(with: examplePlayer())
-        case .levelAnswerEvaluation:
-            Game.shared.transitionToLevel(with: examplePlayer())
-            Game.shared.transitionState(to: .levelAnswerEvaluation)
-        case .unlockOptionsPresented:
-            Game.shared.transitionToLevel(with: examplePlayer())
-            Game.shared.transitionState(to: .unlockOptionsPresented)
-        case .unlockSelection:
-            Game.shared.transitionToLevel(with: examplePlayer())
-            Game.shared.transitionState(to: .unlockOptionsPresented)
-        }
-
-    }
-    
     func examplePlayer() -> Player {
-        return Player(name: "Merl", currentXP: 34)
+        return Player(name: "Merl", currentLevel: 3)
     }
     
     func exampleEquation() -> Equation {
@@ -44,7 +22,7 @@ struct PreviewExampleBuilder {
     }
     
     func exampleLevel() -> Level {
-        return Level(levelCount: 2, levelRequiredXP: 100, currentEquation: exampleEquation(), answerOptions: exampleAnswerOptions(), player: examplePlayer())
+        return Level(config: LevelConfiguration(), levelCount: 3)
     }
     
     func exampleEquationSide() -> EquationSide {

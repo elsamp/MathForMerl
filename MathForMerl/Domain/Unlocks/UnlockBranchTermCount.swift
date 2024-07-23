@@ -9,9 +9,12 @@ import Foundation
 
 struct UnlockBranchTermCount: UnlockBranchProtocol {
     
+    var id = UUID().uuidString
     var currentLevel: Int
-    var maxLevel: Int
-    var updateGameConfig: (Int, Int) -> Void
+    var maxLevel = 5
     
+    init(currentLevel: Int) {
+        self.currentLevel = currentLevel
+    }
     
 }

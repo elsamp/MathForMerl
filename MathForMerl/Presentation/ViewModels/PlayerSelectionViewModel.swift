@@ -7,21 +7,28 @@
 
 import Foundation
 
+protocol PlayerSelectionDelegate: AnyObject {
+    func transitionToLevel(with player:Player)
+}
+
 @Observable
 class PlayerSelectionViewModel {
     
     var playerSelection: PlayerSelection
+    var selectionDelegate: PlayerSelectionDelegate
     
-    init(playerSelection: PlayerSelection) {
-        self.playerSelection = playerSelection
+    init(selectionDelegate: PlayerSelectionDelegate) {
+        self.playerSelection = PlayerSelection()
+        self.selectionDelegate = selectionDelegate
     }
     
     func select(player: Player) {
         print("PlayerSelectionViewModel: selected player \(player)")
-        Game.shared.transitionToLevel(with: player)
+        selectionDelegate.transitionToLevel(with: player)
     }
     
     func availablePlayers() -> [Player]? {
         playerSelection.playerOptions
     }
+    
 }

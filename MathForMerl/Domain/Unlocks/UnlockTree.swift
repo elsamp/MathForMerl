@@ -9,5 +9,5 @@ import Foundation
 
 struct UnlockTree {
     
-    var unlockItems: [UnlockBranchProtocol]
+    var unlockBranches: [any UnlockBranchProtocol]
 }

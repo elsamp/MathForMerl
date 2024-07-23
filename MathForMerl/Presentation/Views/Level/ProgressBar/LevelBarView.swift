@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LevelBarView: View {
     
-    var level: Level
-    @State var player: Player
+    @EnvironmentObject var viewModel: LevelViewModel
     
     private let showIcons = true //for developer testing only
     private let totalWidthMultiplier = 0.8
@@ -19,7 +18,7 @@ struct LevelBarView: View {
     var body: some View {
         ZStack {
 
-            let xPwidthMultiplier = Double(player.currentXP)/Double(level.levelRequiredXP)
+            let xPwidthMultiplier = Double(viewModel.playerProgressXP)/Double(viewModel.level.levelRequiredXP)
             
             //Level Bar
             ZStack(alignment: .leading) {
@@ -52,7 +51,7 @@ struct LevelBarView: View {
                         Circle()
                             .fill(.white)
                             .frame(width: 100)
-                        Text(String(level.levelCount))
+                        Text(String(viewModel.level.levelCount))
                             .font(.system(size: 70))
                             .foregroundStyle(.blue)
                             .fontWeight(.black)
@@ -77,7 +76,6 @@ struct LevelBarView: View {
 #Preview {
     ZStack {
         Color.indigo
-        LevelBarView(level: PreviewExampleBuilder.shared.exampleLevel(),
-                     player: PreviewExampleBuilder.shared.examplePlayer())
+        LevelBarView()
     }
 }

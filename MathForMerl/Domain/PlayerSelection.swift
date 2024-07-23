@@ -9,19 +9,21 @@ import Foundation
 
 struct PlayerSelection {
     
-    var currentPlayer: Player?
     var playerOptions: [Player]?
     
     init() {
-        loadPlayerOptions()
+        self.playerOptions = loadPlayerOptions()
     }
     
-    mutating private func loadPlayerOptions() {
+    private func loadPlayerOptions() -> [Player] {
         
-        //TODO: load saved player profiles... should be doing this in the builder
+        //TODO: load saved player profiles...
         
-        let playerArray = [Player(name: "Merl", currentXP: 20), Player(name: "Joe", currentXP: 10)]
-        playerOptions = playerArray
+        let playerArray = [
+            Player(name: "Merl", currentLevel: 1),
+            Player(name: "Joe", currentLevel: 4)
+        ]
+        return playerArray
     }
     
 }

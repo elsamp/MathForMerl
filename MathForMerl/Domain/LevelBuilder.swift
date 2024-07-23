@@ -10,18 +10,12 @@ import Foundation
 struct LevelBuilder {
     
     static let shared = LevelBuilder()
-    let config = GameConfiguration.shared
+    let config = LevelConfiguration() // TODO: revisit this
     
     private init() { }
 
-    func buildLevel() -> Level {
-        
-        //TODO: get this from active player selection
-        let player = Player(name: "Merl", currentXP: 0)
-        
-        //TODO: load this from saved data
-        let equation = buildEquation()
-        return Level(levelCount: 1, levelRequiredXP: Level.requiredXP(for: 1), currentEquation: equation, answerOptions: buildAnswerOptions(for: equation), player: player)
+    func buildLevel(for player: Player) -> Level {
+        return Level(config: config, levelCount: player.currentLevel)
     }
     
     func buildEquation() -> Equation {

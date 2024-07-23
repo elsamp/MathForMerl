@@ -7,10 +7,12 @@
 
 import Foundation
 
-protocol UnlockBranchProtocol {
+protocol UnlockBranchProtocol: Identifiable {
     
+    var id: String { get set }
     var currentLevel:Int { get set }
     var maxLevel: Int { get }
-    var updateGameConfig: (Int, Int) -> Void { get set }
+    
+    //func updated(config: GameConfiguration) -> GameConfiguration
     
 }

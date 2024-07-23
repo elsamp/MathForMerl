@@ -9,32 +9,42 @@ import SwiftUI
 
 struct LevelView: View {
     
-    @Bindable var viewModel: LevelViewModel
+    @StateObject var viewModel: LevelViewModel
+    @EnvironmentObject var gameViewModel: GameViewModel
     
     var body: some View {
         ZStack {
             LinearGradient(colors: [.mint, .blue], startPoint: .top, endPoint: .bottom)
             VStack {
                 
-                LevelBarView(level: viewModel.level, player: viewModel.player)
+                LevelBarView()
                     .padding(.top, 30)
                 Spacer()
-                EquationView(equation: viewModel.level.currentEquation)
+                
+                if let equation = viewModel.currentEquation {
+                    EquationView(equation: equation)
+                }
                 Spacer()
-                AnswerOptionsView(answerOptions: viewModel.level.answerOptions, selectionAction: viewModel.evaluate(answer:))
-                    .padding(.bottom, 30)
+                if let answers = viewModel.answerOptions {
+                    AnswerOptionsView(answerOptions: answers, selectionAction: viewModel.evaluate(answer:))
+                        .padding(.bottom, 30)
+                }
             }
             .padding()
             
-            if Game.shared.gameState == GameState.unlockOptionsPresented {
+            if gameViewModel.gameState == GameState.unlockOptionsPresented {
                 UnlockSelectionView()
                     .padding(90)
             }
         }
         .ignoresSafeArea()
+        .environmentObject(viewModel)
     }
 }
 
 #Preview {
-    LevelView(viewModel: LevelViewModel(player: PreviewExampleBuilder.shared.examplePlayer()))
+    LevelView(viewModel: LevelViewModel(player: PreviewExampleBuilder.shared.examplePlayer(),
+                                        level: PreviewExampleBuilder.shared.exampleLevel(),
+                                        delegate: PreviewLevelDelegate()))
+    .environmentObject(GameViewModel())
 }

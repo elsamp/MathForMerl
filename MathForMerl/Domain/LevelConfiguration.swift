@@ -7,23 +7,20 @@
 
 import Foundation
 
-struct GameConfiguration {
-    
-    static let shared = GameConfiguration()
+struct LevelConfiguration {
     
     //Game config constants
     let levelXPBase = 100
     let numAnswerOptions = 4
     
-    
     //load from saved data
-    var maxNumber: Int
-    var minNumber: Int
-    var availiableOperators: [Operator]
-    var leftSideTermCount: Int
-    var rightSideTermCount: Int
+    let maxNumber: Int
+    let minNumber: Int
+    let availiableOperators: [Operator]
+    let leftSideTermCount: Int
+    let rightSideTermCount: Int
     
-    private init() {
+    init() {
         //TODO: load actual settings
         
         self.maxNumber = 20

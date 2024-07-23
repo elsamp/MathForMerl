@@ -9,8 +9,9 @@ import SwiftUI
 
 struct PlayerSelectionView: View {
     
-    @Bindable var viewModel:PlayerSelectionViewModel
+    var viewModel:PlayerSelectionViewModel
     @Binding var path: NavigationPath
+    @EnvironmentObject var gameViewModel: GameViewModel
     
     var body: some View {
         ZStack {
@@ -24,9 +25,11 @@ struct PlayerSelectionView: View {
                             viewModel.select(player: player)
                         })
                         .navigationDestination(for: Player.self) { p in
-                            let levelViewModel = LevelViewModel(player: p)
-                            LevelView(viewModel: levelViewModel)
-                                .transition(.opacity)
+                            
+                            if let levelViewModel = gameViewModel.levelViewModel {
+                                LevelView(viewModel: levelViewModel)
+                                    .transition(.opacity)
+                            }  
                         }
                     }
                 }
@@ -42,5 +45,5 @@ struct PlayerSelectionView: View {
 #Preview {
     
     @State var path = NavigationPath()
-    return PlayerSelectionView(viewModel: PlayerSelectionViewModel(playerSelection: PlayerSelection()), path: $path)
+    return PlayerSelectionView(viewModel: PlayerSelectionViewModel(selectionDelegate: PreviewPlayerSelectionDelegate()), path: $path)
 }

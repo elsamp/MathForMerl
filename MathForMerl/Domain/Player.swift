@@ -7,24 +7,16 @@
 
 import Foundation
 
-@Observable
-class Player: Identifiable, Hashable {
-    static func == (lhs: Player, rhs: Player) -> Bool {
-        ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-    }
-    
+struct Player: Identifiable, Hashable {
+
     let name: String
-    var currentXP: Int
-    let id = UUID()
+    let currentLevel: Int
+    let id: String
     
-    init(name: String, currentXP: Int) {
+    init(id: String = UUID().uuidString, name: String, currentLevel: Int) {
         self.name = name
-        self.currentXP = currentXP
+        self.currentLevel = currentLevel
+        self.id = id
     }
-    
-    func hash(into hasher: inout Hasher) {
-            hasher.combine(ObjectIdentifier(self))
-    }
-    
-    
+
 }
