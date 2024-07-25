@@ -9,10 +9,10 @@ import Foundation
 
 protocol UnlockBranchProtocol: Identifiable {
     
-    var id: String { get set }
+    var id: String { get }
     var currentLevel:Int { get set }
     var maxLevel: Int { get }
     
-    //func updated(config: GameConfiguration) -> GameConfiguration
+    func levelUp()
     
 }

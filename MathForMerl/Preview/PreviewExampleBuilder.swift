@@ -14,7 +14,7 @@ struct PreviewExampleBuilder {
     init() { }
     
     func examplePlayer() -> Player {
-        return Player(name: "Merl", currentLevel: 3)
+        return Player(name: "Merl", currentLevel: 3, id:UUID().uuidString, unlockTree: exampleUnlockTree())
     }
     
     func exampleEquation() -> Equation {
@@ -40,6 +40,12 @@ struct PreviewExampleBuilder {
     
     func exampleAnswerSelectionAction() -> ((Int) -> Bool) {
         return { num in true }
+    }
+    
+    func exampleUnlockTree() -> UnlockTree{
+        
+        let termBranch = UnlockBranchTermCount(currentLevel: 0)
+        return UnlockTree(termCountBranch: termBranch)
     }
 
 }

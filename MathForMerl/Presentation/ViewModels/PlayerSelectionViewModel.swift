@@ -17,8 +17,8 @@ class PlayerSelectionViewModel {
     var playerSelection: PlayerSelection
     var selectionDelegate: PlayerSelectionDelegate
     
-    init(selectionDelegate: PlayerSelectionDelegate) {
-        self.playerSelection = PlayerSelection()
+    init(selectionDelegate: PlayerSelectionDelegate, playerSelection: PlayerSelection) {
+        self.playerSelection = playerSelection
         self.selectionDelegate = selectionDelegate
     }
     
@@ -29,6 +29,12 @@ class PlayerSelectionViewModel {
     
     func availablePlayers() -> [Player]? {
         playerSelection.playerOptions
+    }
+    
+    func createNewPlayer(name: String) -> Player {
+        let player = Player(name: name, currentLevel: 1, unlockTree: UnlockTree())
+        playerSelection.addNew(player: player)
+        return player
     }
     
 }

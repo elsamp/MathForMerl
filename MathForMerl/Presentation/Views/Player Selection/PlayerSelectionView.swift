@@ -24,17 +24,34 @@ struct PlayerSelectionView: View {
                         PlayerCardView(player: player, path: $path, selectionAction: { player in
                             viewModel.select(player: player)
                         })
+                        
+                    }
+                    .navigationDestination(for: Player.self) { p in
+                        
+                        if let levelViewModel = gameViewModel.levelViewModel {
+                            LevelView(viewModel: levelViewModel)
+                                .transition(.opacity)
+                        }
+                    }
+                    
+                    //TODO: add player creation card
+                    VStack {
+                        //Replace with actual form
+                        Button("Add Player") {
+                            let player =  viewModel.createNewPlayer(name: "Bean")
+                            viewModel.select(player: player)
+                            path.append(player)
+                        }
                         .navigationDestination(for: Player.self) { p in
                             
                             if let levelViewModel = gameViewModel.levelViewModel {
                                 LevelView(viewModel: levelViewModel)
                                     .transition(.opacity)
-                            }  
+                            }
                         }
                     }
                 }
-                
-                //TODO: add player creation card
+
             }
             
         }
@@ -45,5 +62,5 @@ struct PlayerSelectionView: View {
 #Preview {
     
     @State var path = NavigationPath()
-    return PlayerSelectionView(viewModel: PlayerSelectionViewModel(selectionDelegate: PreviewPlayerSelectionDelegate()), path: $path)
+    return PlayerSelectionView(viewModel: PlayerSelectionViewModel(selectionDelegate: PreviewPlayerSelectionDelegate(), playerSelection: PlayerSelection()), path: $path)
 }

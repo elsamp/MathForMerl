@@ -54,7 +54,9 @@ class GameViewModel: ObservableObject, PlayerSelectionDelegate, LevelDelegate {
     
     //MARK: Update Game State
     func transitionToPlayerSelection() {
-        playerSelectionViewModel = PlayerSelectionViewModel(selectionDelegate: self)
+        let playerSelection = PlayerSelection()
+        playerSelection.loadPlayerOptions()
+        playerSelectionViewModel = PlayerSelectionViewModel(selectionDelegate: self, playerSelection: playerSelection)
     }
     
     func transitionToLevel(with player: Player) {
