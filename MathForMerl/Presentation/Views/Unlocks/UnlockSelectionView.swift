@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct UnlockSelectionView: View {
+    
+    var viewModel: UnlockSelectionViewModel
+    
     var body: some View {
-        Text("Level Complete!")
+        ZStack {
+            UnlockSelectionBackgroundView()
+            VStack {
+                Text("Level Complete!")
+                    .font(.largeTitle)
+                Text("Let's make things a little harder. Choose what you want.")
+                
+                if let unlockOptions = viewModel.unlockOptions() {
+                    ForEach(unlockOptions, id: \.id) { unlockBranch in
+                        UnlockCardView(unlockBranch: unlockBranch, selectionAction: viewModel.selected(unlock:))
+                    }
+                    .padding(.top, 30)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    UnlockSelectionView()
+    ZStack {
+        Color.blue
+        UnlockSelectionView(viewModel: UnlockSelectionViewModel(unlockTree: UnlockTree(), unlockSelectionDelegate: PreviewUnlockDelegate()))
+    }
 }

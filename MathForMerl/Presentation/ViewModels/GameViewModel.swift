@@ -14,17 +14,17 @@ enum GameState {
     case levelEquationPresented
     case levelAnswerEvaluation
     case unlockOptionsPresented
-    case unlockSelection
+    case unlockSelected
 }
 
 
-class GameViewModel: ObservableObject, PlayerSelectionDelegate, LevelDelegate {
-    
+class GameViewModel: ObservableObject, PlayerSelectionDelegate, LevelDelegate, UnlockDelegate {
+
     var playerSelectionViewModel: PlayerSelectionViewModel?
     var levelViewModel: LevelViewModel?
     var unlockSelectionViewModel: UnlockSelectionViewModel?
     
-    var gameState = GameState.initialLaunch
+    @Published var gameState = GameState.initialLaunch
     var player: Player? //will set with player selection
     var level: Level? //can create when player and config are defined
     
@@ -46,6 +46,15 @@ class GameViewModel: ObservableObject, PlayerSelectionDelegate, LevelDelegate {
         return LevelConfiguration()
     }
     
+    func selected(unlock: any UnlockBranchProtocol) {
+        //Update configuration
+        
+        //change game state
+        if let player = player {
+            transitionToLevel(with: player)
+        }
+    }
+    
     func resetGame(){
         gameState = .playerSelection
         //reset everything if starting new came from somewhere else
@@ -54,7 +63,7 @@ class GameViewModel: ObservableObject, PlayerSelectionDelegate, LevelDelegate {
     
     //MARK: Update Game State
     func transitionToPlayerSelection() {
-        let playerSelection = PlayerSelection()
+        let playerSelection = PlayerManager()
         playerSelection.loadPlayerOptions()
         playerSelectionViewModel = PlayerSelectionViewModel(selectionDelegate: self, playerSelection: playerSelection)
     }
@@ -62,7 +71,13 @@ class GameViewModel: ObservableObject, PlayerSelectionDelegate, LevelDelegate {
     func transitionToLevel(with player: Player) {
         setActive(player: player)
         let level = LevelBuilder.shared.buildLevel(for: player)
-        levelViewModel = LevelViewModel.init(player: player, level: level, delegate: self)
+        
+        if levelViewModel == nil {
+            levelViewModel = LevelViewModel(player: player, level: level, delegate: self)
+        } else {
+            levelViewModel?.level = level
+            levelViewModel?.nextEquation()
+        }
         transitionState(to: .levelEquationPresented)
     }
     
@@ -71,6 +86,11 @@ class GameViewModel: ObservableObject, PlayerSelectionDelegate, LevelDelegate {
     }
     
     func transitionToUnlockSelection() {
+        
+        if let player = player {
+            unlockSelectionViewModel = UnlockSelectionViewModel(unlockTree: player.unlockTree, unlockSelectionDelegate: self)
+        }
+        
         transitionState(to: .unlockOptionsPresented)
     }
     
@@ -98,7 +118,7 @@ class GameViewModel: ObservableObject, PlayerSelectionDelegate, LevelDelegate {
         case .unlockOptionsPresented:
             gameState = newState
             break
-        case .unlockSelection:
+        case .unlockSelected:
             //can only transition from unlockOptionsPresented
             gameState = newState
             break

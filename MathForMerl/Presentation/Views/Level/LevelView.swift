@@ -15,26 +15,31 @@ struct LevelView: View {
     var body: some View {
         ZStack {
             LinearGradient(colors: [.mint, .blue], startPoint: .top, endPoint: .bottom)
-            VStack {
-                
-                LevelBarView()
-                    .padding(.top, 30)
-                Spacer()
-                
-                if let equation = viewModel.currentEquation {
-                    EquationView(equation: equation)
-                }
-                Spacer()
-                if let answers = viewModel.answerOptions {
-                    AnswerOptionsView(answerOptions: answers, selectionAction: viewModel.evaluate(answer:))
-                        .padding(.bottom, 30)
-                }
-            }
-            .padding()
             
-            if gameViewModel.gameState == GameState.unlockOptionsPresented {
-                UnlockSelectionView()
-                    .padding(90)
+            if gameViewModel.gameState == GameState.levelAnswerEvaluation || gameViewModel.gameState == GameState.levelEquationPresented {
+                VStack {
+                    
+                    LevelBarView()
+                        .padding(.top, 30)
+                    Spacer()
+                    
+                    if let equation = viewModel.currentEquation {
+                        EquationView(equation: equation)
+                    }
+                    Spacer()
+                    if let answers = viewModel.answerOptions {
+                        AnswerOptionsView(answerOptions: answers, selectionAction: viewModel.evaluate(answer:))
+                            .padding(.bottom, 30)
+                    }
+                }
+                .padding()
+                
+            } else if gameViewModel.gameState == GameState.unlockOptionsPresented || gameViewModel.gameState == GameState.unlockSelected {
+                
+                if let unlockViewModel = gameViewModel.unlockSelectionViewModel {
+                    UnlockSelectionView(viewModel: unlockViewModel)
+                        .padding(90)
+                }
             }
         }
         .ignoresSafeArea()

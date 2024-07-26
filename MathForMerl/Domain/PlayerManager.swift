@@ -12,7 +12,7 @@ struct Players: Codable {
     let players: [Player]
 }
 
-class PlayerSelection {
+class PlayerManager {
     
     var playerOptions: [Player]?
     var saveFileURL = URL.documentsDirectory.appending(path: "players.json")
@@ -61,6 +61,25 @@ class PlayerSelection {
             }
         }
 
+    }
+    
+    func saveProfress(for player: Player) {
+        
+        if let playerOptions = playerOptions {
+            
+            let players = Players(players: playerOptions)
+            if let data = try? JSONEncoder().encode(players) {
+                //print(String(decoding: data, as: UTF8.self))
+                
+                do {
+                    try data.write(to: saveFileURL, options: [.atomic, .completeFileProtection])
+                    print("Saving Progress")
+                } catch {
+                    print("Error Saving: \(error.localizedDescription)")
+                }
+            }
+        }
+        
     }
     
 }

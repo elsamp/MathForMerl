@@ -16,7 +16,8 @@ class UnlockBranchTermCount: UnlockBranchProtocol, Identifiable, Hashable, Codab
 
     var id = UUID().uuidString
     var currentLevel: Int
-    var maxLevel = 5
+    let maxLevel = 5
+    let displayName = "More Terms"
 
     var termCount: Int {
         currentLevel + 1

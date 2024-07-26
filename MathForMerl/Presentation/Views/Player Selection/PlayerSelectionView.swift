@@ -18,7 +18,6 @@ struct PlayerSelectionView: View {
             LinearGradient(colors: [.yellow, .orange], startPoint: .top, endPoint: .bottom)
             
             HStack {
-                
                 if let players = viewModel.availablePlayers() {
                     ForEach(players) { player in
                         PlayerCardView(player: player, path: $path, selectionAction: { player in
@@ -26,41 +25,34 @@ struct PlayerSelectionView: View {
                         })
                         
                     }
-                    .navigationDestination(for: Player.self) { p in
-                        
-                        if let levelViewModel = gameViewModel.levelViewModel {
-                            LevelView(viewModel: levelViewModel)
-                                .transition(.opacity)
-                        }
-                    }
-                    
-                    //TODO: add player creation card
-                    VStack {
-                        //Replace with actual form
-                        Button("Add Player") {
-                            let player =  viewModel.createNewPlayer(name: "Bean")
-                            viewModel.select(player: player)
-                            path.append(player)
-                        }
-                        .navigationDestination(for: Player.self) { p in
-                            
-                            if let levelViewModel = gameViewModel.levelViewModel {
-                                LevelView(viewModel: levelViewModel)
-                                    .transition(.opacity)
-                            }
-                        }
+                }
+                
+                //TODO: add player creation card
+                VStack {
+                    //Replace with actual form
+                    Button("Add Player") {
+                        let player =  viewModel.createNewPlayer(name: "Merl")
+                        viewModel.select(player: player)
+                        path.append(player)
                     }
                 }
-
+            }
+            .navigationDestination(for: Player.self) { p in
+                
+                if let levelViewModel = gameViewModel.levelViewModel {
+                    LevelView(viewModel: levelViewModel)
+                        .transition(.opacity)
+                }
             }
             
         }
         .ignoresSafeArea()
     }
+    
 }
 
 #Preview {
     
     @State var path = NavigationPath()
-    return PlayerSelectionView(viewModel: PlayerSelectionViewModel(selectionDelegate: PreviewPlayerSelectionDelegate(), playerSelection: PlayerSelection()), path: $path)
+    return PlayerSelectionView(viewModel: PlayerSelectionViewModel(selectionDelegate: PreviewPlayerSelectionDelegate(), playerSelection: PlayerManager()), path: $path)
 }

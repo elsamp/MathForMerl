@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B0C1308B2C51917400C88800 /* UnlockTreeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C1308A2C51917400C88800 /* UnlockTreeBuilder.swift */; };
+		B0C130E32C54203500C88800 /* UnlockCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C130E22C54203500C88800 /* UnlockCardView.swift */; };
+		B0C130E52C5426D000C88800 /* UnlockSelectionBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C130E42C5426D000C88800 /* UnlockSelectionBackgroundView.swift */; };
+		B0C130E72C542B5000C88800 /* PreviewUnlockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C130E62C542B5000C88800 /* PreviewUnlockDelegate.swift */; };
 		B0C41B2B2C4814B300F1E09F /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B2A2C4814B300F1E09F /* LevelView.swift */; };
 		B0C41B2D2C4815D100F1E09F /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B2C2C4815D100F1E09F /* LevelViewModel.swift */; };
-		B0C41B2F2C481AB400F1E09F /* PlayerSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B2E2C481AB400F1E09F /* PlayerSelection.swift */; };
+		B0C41B2F2C481AB400F1E09F /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B2E2C481AB400F1E09F /* PlayerManager.swift */; };
 		B0C41B312C48452900F1E09F /* EquationPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B302C48452900F1E09F /* EquationPartView.swift */; };
 		B0C41B332C484D0F00F1E09F /* EquationSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B322C484D0F00F1E09F /* EquationSideView.swift */; };
 		B0C41B352C4858A700F1E09F /* OperatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C41B342C4858A700F1E09F /* OperatorView.swift */; };
@@ -67,9 +70,12 @@
 
 /* Begin PBXFileReference section */
 		B0C1308A2C51917400C88800 /* UnlockTreeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockTreeBuilder.swift; sourceTree = "<group>"; };
+		B0C130E22C54203500C88800 /* UnlockCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockCardView.swift; sourceTree = "<group>"; };
+		B0C130E42C5426D000C88800 /* UnlockSelectionBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockSelectionBackgroundView.swift; sourceTree = "<group>"; };
+		B0C130E62C542B5000C88800 /* PreviewUnlockDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewUnlockDelegate.swift; sourceTree = "<group>"; };
 		B0C41B2A2C4814B300F1E09F /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		B0C41B2C2C4815D100F1E09F /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
-		B0C41B2E2C481AB400F1E09F /* PlayerSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelection.swift; sourceTree = "<group>"; };
+		B0C41B2E2C481AB400F1E09F /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		B0C41B302C48452900F1E09F /* EquationPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationPartView.swift; sourceTree = "<group>"; };
 		B0C41B322C484D0F00F1E09F /* EquationSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationSideView.swift; sourceTree = "<group>"; };
 		B0C41B342C4858A700F1E09F /* OperatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorView.swift; sourceTree = "<group>"; };
@@ -179,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				B0D796BE2C4EDE4D00630156 /* UnlockSelectionView.swift */,
+				B0C130E22C54203500C88800 /* UnlockCardView.swift */,
+				B0C130E42C5426D000C88800 /* UnlockSelectionBackgroundView.swift */,
 			);
 			path = Unlocks;
 			sourceTree = "<group>";
@@ -272,7 +280,7 @@
 				B0FBAD152C46F565002FFFBA /* Player.swift */,
 				B0FBAD1F2C46FEAB002FFFBA /* LevelBuilder.swift */,
 				B0FBAD2A2C472F8C002FFFBA /* LevelConfiguration.swift */,
-				B0C41B2E2C481AB400F1E09F /* PlayerSelection.swift */,
+				B0C41B2E2C481AB400F1E09F /* PlayerManager.swift */,
 				B0C41B362C487E0600F1E09F /* AnswerOptions.swift */,
 			);
 			path = Domain;
@@ -331,6 +339,7 @@
 				B0FBAD342C480E9B002FFFBA /* PreviewExampleBuilder.swift */,
 				B0D796EC2C500FC600630156 /* PreviewPlayerSelectionDelegate.swift */,
 				B0D796EE2C500FF800630156 /* PreviewLevelDelegate.swift */,
+				B0C130E62C542B5000C88800 /* PreviewUnlockDelegate.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 				B0FBAD292C472E77002FFFBA /* UnlockBranchTermCount.swift in Sources */,
 				B0FBAD202C46FEAB002FFFBA /* LevelBuilder.swift in Sources */,
 				B0FBAC8A2C41C3EE002FFFBA /* GameView.swift in Sources */,
+				B0C130E52C5426D000C88800 /* UnlockSelectionBackgroundView.swift in Sources */,
 				B0FBAD322C480B35002FFFBA /* PlayerCardView.swift in Sources */,
 				B0FBAD072C46EF75002FFFBA /* LevelBarView.swift in Sources */,
 				B0FBAD142C46F3A4002FFFBA /* Equation.swift in Sources */,
@@ -475,12 +485,14 @@
 				B0D796E92C4FEC1100630156 /* GameViewModel.swift in Sources */,
 				B0FBAD272C472E3D002FFFBA /* UnlockTree.swift in Sources */,
 				B0FBAD182C46F7C1002FFFBA /* EquationPart.swift in Sources */,
+				B0C130E32C54203500C88800 /* UnlockCardView.swift in Sources */,
 				B0FBAD0B2C46F05D002FFFBA /* TermView.swift in Sources */,
 				B0C41B332C484D0F00F1E09F /* EquationSideView.swift in Sources */,
 				B0C41B2D2C4815D100F1E09F /* LevelViewModel.swift in Sources */,
+				B0C130E72C542B5000C88800 /* PreviewUnlockDelegate.swift in Sources */,
 				B0FBAD052C46EE4F002FFFBA /* EquationView.swift in Sources */,
 				B0C41B2B2C4814B300F1E09F /* LevelView.swift in Sources */,
-				B0C41B2F2C481AB400F1E09F /* PlayerSelection.swift in Sources */,
+				B0C41B2F2C481AB400F1E09F /* PlayerManager.swift in Sources */,
 				B0FBAD232C472CB8002FFFBA /* UnlockBranchProtocol.swift in Sources */,
 				B0FBAC882C41C3EE002FFFBA /* MathForMerlApp.swift in Sources */,
 				B0FBAD122C46F38D002FFFBA /* Level.swift in Sources */,

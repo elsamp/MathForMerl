@@ -14,17 +14,17 @@ protocol PlayerSelectionDelegate: AnyObject {
 @Observable
 class PlayerSelectionViewModel {
     
-    var playerSelection: PlayerSelection
-    var selectionDelegate: PlayerSelectionDelegate
+    var playerSelection: PlayerManager
+    private weak var selectionDelegate: PlayerSelectionDelegate?
     
-    init(selectionDelegate: PlayerSelectionDelegate, playerSelection: PlayerSelection) {
+    init(selectionDelegate: PlayerSelectionDelegate, playerSelection: PlayerManager) {
         self.playerSelection = playerSelection
         self.selectionDelegate = selectionDelegate
     }
     
     func select(player: Player) {
         print("PlayerSelectionViewModel: selected player \(player)")
-        selectionDelegate.transitionToLevel(with: player)
+        selectionDelegate?.transitionToLevel(with: player)
     }
     
     func availablePlayers() -> [Player]? {

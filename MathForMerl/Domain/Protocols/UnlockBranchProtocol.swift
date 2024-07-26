@@ -12,6 +12,7 @@ protocol UnlockBranchProtocol: Identifiable {
     var id: String { get }
     var currentLevel:Int { get set }
     var maxLevel: Int { get }
+    var displayName: String { get }
     
     func levelUp()
     

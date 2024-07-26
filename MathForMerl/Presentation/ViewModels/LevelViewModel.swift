@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LevelDelegate {
+protocol LevelDelegate: AnyObject {
     func transitionToEquationEvaluation()
     func transitionToUnlockSelection()
 }
@@ -18,7 +18,7 @@ class LevelViewModel: ObservableObject {
     var player: Player
     @Published var currentEquation: Equation?
     @Published var answerOptions: AnswerOptions?
-    var delegate: LevelDelegate
+    private weak var delegate: LevelDelegate?
     @Published var playerProgressXP = 0
     
     init(player: Player, level: Level, delegate: LevelDelegate) {
@@ -31,7 +31,7 @@ class LevelViewModel: ObservableObject {
     
     func evaluate(answer: Int) -> Bool {
         
-        delegate.transitionToEquationEvaluation()
+        delegate?.transitionToEquationEvaluation()
         
         if let equation = currentEquation {
             let result = equation.answerPart.term == answer
@@ -76,7 +76,7 @@ class LevelViewModel: ObservableObject {
     
     func completeLevel() {
         level = Level(config: level.config, levelCount: level.levelCount, isComplete: true)
-        delegate.transitionToUnlockSelection()
+        delegate?.transitionToUnlockSelection()
         print("Level complete!")
     }
     
